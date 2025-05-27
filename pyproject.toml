@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "my-tensorflow-project"
+version = "0.1.0"
+description = "Simple app"
+authors = ["Taras Dzyk <taras.dzyk@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tensorflow = "^2.15.0"
+black = "^24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
