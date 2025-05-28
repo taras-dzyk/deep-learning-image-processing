@@ -1,6 +1,4 @@
 __pycache__/
-input/*
-!input/.gitkeep
 output/*
 !output/.gitkeep
 poetry.lock
