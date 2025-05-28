@@ -98,7 +98,7 @@ def search_and_copy():
             print(f"Помилка з файлом {image_path}: {e}")
 
 
-def search_and_copy_v2():
+def search_and_copy_v2(probability=0.5):
     import os
     import shutil
     import tensorflow as tf
@@ -131,7 +131,7 @@ def search_and_copy_v2():
     # Проходимо всі зображення у 'input'
     for img_path in input_dir.glob("*.*"):
         if not img_path.is_file() or not is_image_file(img_path):
-            print(f"[ℹ️] Пропущено: {img_path.name}")
+            printy(f"Пропущено: {img_path.name}")
             continue
 
         try:
@@ -139,11 +139,23 @@ def search_and_copy_v2():
             img_tensor = tf.expand_dims(img_array, axis=0)  # shape: (1, 224, 224, 3)
             pred = model_binary.predict(img_tensor, verbose=0)[0][0]
 
-            if pred > 0.5:
+            if pred > probability:
                 shutil.copy(img_path, output_dir / img_path.name)
-                print(f"[🟢] Крокодил: {img_path.name} (score: {pred:.3f})")
+                printg(f"Тримай крокодила! {img_path.name} (score: {pred:.3f})")
             else:
-                print(f"[⚪] Не крокодил: {img_path.name} (score: {pred:.3f})")
+                printv(f"Не схоже: {img_path.name} (score: {pred:.3f})")
 
         except Exception as e:
-            print(f"[🔴] Помилка з файлом {img_path.name}: {e}")
+            printr(f"Помилка з файлом {img_path.name}: {e}")
+
+def printv(text):
+    print(f"\033[95m{text}\033[0m")
+
+def printg(text):
+    print(f"\033[92m{text}\033[0m")
+
+def printr(text):
+    print(f"\033[91m{text}\033[0m")
+
+def printy(text):
+    print(f"\033[93m{text}\033[0m")

@@ -21,17 +21,18 @@ def print_crocodile():
     print(ascii_art)
 
 
-
 print_crocodile()
 print("Welcome to crocodile finder")
 
 
-user_input = input(f'Do you want to train a model of find crocodiles? (type \'t\' for train, hit return for crocodile search)').strip()
+user_input = input(f'Do you want to train a model of find crocodiles? (type \'t\' for train, hit return for crocodile search. \'s\' for strict )').strip()
 
 if user_input == "":
     search_and_copy_v2() 
 elif user_input.lower() == "t":
     train_one_vs_all_v2()
+elif user_input.lower() == "s":
+    search_and_copy_v2(0.9) 
 else:
     print("Wrong input")
 
