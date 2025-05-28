@@ -32,3 +32,25 @@ poetry run python main.py
 # Modes
 - Training mode(`t`) Trains and stores model based on `dataset` folder images
 - Prediction mode. Scans `input` folder and copies crocodiles to `output` folder
+
+# Project structure
+```
+deep-learning-image-processing/
+├── dataset/ # Тренувальні дані. Їх можна розширювати
+│   ├── crocodiles/
+│   ├── airplanes/
+│   ├── dollar_bills/
+│   ├── electric_guitars/
+│   └── motorbikes/
+├── input/  # Вхідні дані для прогнозування
+├── output/ # Вихідні визначені зображення
+├── models/
+│   ├── weights.h5
+│   └── model_binary.keras
+├── app.py # Головний файл
+├── image_searcher.py
+├── model_trainer.py
+├── README.md
+└── pyproject.toml # Структура проекту і зовнішні модулі
+
+```
