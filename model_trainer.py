@@ -138,8 +138,8 @@ def train_one_vs_all():
     data_dir = pathlib.Path('dataset').with_suffix('')
 
     # я модифікував це для resnet котрий вимагає мін 197×197
-    min_height = 197
-    min_width = 300
+    min_height = 224
+    min_width = 224
 
     dataset = tf.keras.preprocessing.image_dataset_from_directory(
         data_dir,
@@ -197,7 +197,7 @@ def train_one_vs_all():
 
    
 
-    inputs = tf.keras.Input(shape=(197, 300, 3))
+    inputs = tf.keras.Input(shape=(224, 224, 3))
 
     x = tf.keras.layers.Rescaling(1./255)(inputs)
     x = tf.keras.layers.Conv2D(32, (3, 3), activation='relu')(x)
