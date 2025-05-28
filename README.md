@@ -21,7 +21,7 @@ Few optins were added: CNN model with custom loss function which prioritizes cro
 Both are using binary classification approach where 1 - crocodile and 0 - all other images
 
 # How to run
-You will need python 3.11
+You will need poetry and python 3.11
 
 ```
 poetry env use 3.11.8  
